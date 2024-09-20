@@ -1,21 +1,19 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tetris-deployment
+  name: react-app-deployment
 spec:
-  replicas: 2 # You can adjust the number of replicas as needed
+  replicas: 2
   selector:
     matchLabels:
-      app: tetris
+      app: react-app
   template:
     metadata:
       labels:
-        app: tetris
+        app: react-app
     spec:
       containers:
-        - name: tetris
-          image: nginx:latest # Replace with the actual image tag
-          ports:
-            - containerPort: 80 # Replace with the port your Tetris game listens on
-
+      - name: react-app
+        image: panchanandevops/react-app:v1.0.0
+        ports:
+        - containerPort: 8080
